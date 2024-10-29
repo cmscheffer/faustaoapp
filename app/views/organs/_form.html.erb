@@ -1,0 +1,13 @@
+<div class="container">
+
+  <%= simple_form_for @organ do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price, as: :decimal %>
+    <%= f.input :age, as: :integer %>
+    <%= f.input :bloody_type, collection: Organ::BLOODY_TYPE %>
+    <%= f.input :img_url %>
+    <%= f.submit "Update Organ", disable_with: 'Creating' %>
+  <% end %>
+
+</div>

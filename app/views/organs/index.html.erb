@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>List of organs</h1>
+  <ul>
+    <% @organs.each do |organ| %>
+      <li>
+        <%= link_to organ.name, organ %>
+      </li>
+    <% end %>
+  </ul>
+  <div>
+    <%= link_to "New Organ", new_organ_path %>
+  </div>
+</div>
