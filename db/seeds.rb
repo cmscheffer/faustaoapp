@@ -1,13 +1,22 @@
-# db/seeds.rb
+# db/seeds/organs.rb
 
-# Criando alguns órgãos
-Organ.create(name: "Coração", function: "Bombear o sangue para todo o corpo.", location: "Peito")
-Organ.create(name: "Pulmão", function: "Permitir trocas gasosas, fornecendo oxigênio ao sangue e removendo dióxido de carbono.", location: "Peito")
-Organ.create(name: "Fígado", function: "Filtrar toxinas do sangue e produzir bile para digestão.", location: "Abdômen")
-Organ.create(name: "Estômago", function: "Realizar a digestão inicial dos alimentos, quebrando proteínas.", location: "Abdômen")
-Organ.create(name: "Cérebro", function: "Controlar o sistema nervoso e coordenar funções do corpo e da mente.", location: "Crânio")
-Organ.create(name: "Rins", function: "Filtrar o sangue e eliminar resíduos na forma de urina.", location: "Parte inferior das costas")
-Organ.create(name: "Intestino Delgado", function: "Absorver nutrientes dos alimentos digeridos.", location: "Abdômen")
-Organ.create(name: "Intestino Grosso", function: "Absorver água e formar as fezes.", location: "Abdômen")
-Organ.create(name: "Pâncreas", function: "Produzir insulina e enzimas digestivas.", location: "Abdômen")
-Organ.create(name: "Baço", function: "Filtrar o sangue e combater infecções.", location: "Abdômen")
+Organ.destroy_all
+
+organs = [
+  { name: "Coração", description: "Responsável por bombear o sangue por todo o corpo", price: 50000, age: 30, bloody_type: "O+", img_url: "https://example.com/coracao.jpg" },
+  { name: "Fígado", description: "Filtra toxinas do sangue", price: 45000, age: 25, bloody_type: "A-", img_url: "https://example.com/figado.jpg" },
+  { name: "Rim", description: "Regula o equilíbrio de fluidos e eletrólitos", price: 30000, age: 28, bloody_type: "B+", img_url: "https://example.com/rim.jpg" },
+  { name: "Pulmão", description: "Essencial para a respiração e troca de oxigênio", price: 40000, age: 35, bloody_type: "AB-", img_url: "https://example.com/pulmao.jpg" },
+  { name: "Pâncreas", description: "Regula os níveis de açúcar no sangue", price: 35000, age: 40, bloody_type: "O-", img_url: "https://example.com/pancreas.jpg" },
+  { name: "Intestino", description: "Auxilia na digestão e absorção de nutrientes", price: 25000, age: 22, bloody_type: "A+", img_url: "https://example.com/intestino.jpg" },
+  { name: "Pele", description: "Protege o corpo de fatores externos", price: 20000, age: 29, bloody_type: "B-", img_url: "https://example.com/pele.jpg" },
+  { name: "Estômago", description: "Digiere alimentos através de ácidos gástricos", price: 22000, age: 33, bloody_type: "AB+", img_url: "https://example.com/estomago.jpg" },
+  { name: "Cérebro", description: "Controla o sistema nervoso e funções do corpo", price: 100000, age: 40, bloody_type: "O+", img_url: "https://example.com/cerebro.jpg" },
+  { name: "Baço", description: "Ajuda na filtragem do sangue e na imunidade", price: 25000, age: 27, bloody_type: "A-", img_url: "https://example.com/baco.jpg" }
+]
+
+organs.each do |organ|
+  Organ.create!(organ)
+end
+
+puts "Seed de órgãos criada com sucesso!"
