@@ -1,2 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- Conteúdo Principal -->
+<div class="container text-center">
+  <div class="py-5">
+    <h1 class="display-4 mb-3">Faustão APP</h1>
+    <p class="lead mb-4">Compre aqui seus Orgãos</p>
+
+    <div class="card mx-auto" style="max-width: 500px;">
+      <div class="card-body">
+        <h2 class="card-title h4 mb-4">Você precisa Registrar ou logar para ver nossos produtos.</h2>
+        <%= link_to "Entrar", new_user_session_path, class: "btn btn-primary btn-lg" %>
+      </div>
+    </div>
+  </div>
+</div>
