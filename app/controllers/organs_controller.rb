@@ -15,7 +15,7 @@ class OrgansController < ApplicationController
   def create
     @organ = Organ.new(organ_params)
     if @organ.save
-      redirect_to organ_path(@organ)
+      redirect_to organ_path(@organ), notice: 'Organ was successfully created.'
     else
       render :new
     end
@@ -28,7 +28,7 @@ class OrgansController < ApplicationController
   def update
     @organ = Organ.find(params[:id])
     if @organ.update(organ_params)
-      redirect_to organ_path(@organ)
+      redirect_to organ_path(@organ), notice: 'Organ was successfully updated.'
     else
       render :edit
     end

@@ -1,13 +1,23 @@
 <div class="container">
-  <h1>List of organs</h1>
-  <ul>
-    <% @organs.each do |organ| %>
-      <li>
-        <%= link_to organ.name, organ %>
-      </li>
-    <% end %>
-  </ul>
-  <div>
-    <%= link_to "New Organ", new_organ_path %>
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>ORGANS</h1>
+    <%= link_to "New Organ", new_organ_path, class: "btn btn-primary" %>
+  </div>
+  <div class="cards row justify-content-center">
+  <% @organs.each do |organ| %>
+    <div class="mb-3" style="width:400px">
+      <div class="card">
+        <%= image_tag organ.img_url, class: "card-img-top" %>
+        <div class="card-body">
+          <h4 class="card-title"><%= organ.name %></h4>
+          <p class="card-text"><%= organ.description %></p>
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <%= link_to "Details", organ_path(organ), class: "btn btn-primary" %>
+            <p style="font-weight: 600; font-size: 1.2rem;">€<%= organ.price%></p>
+          </div>
+      </div>
+      </div>
+    </div>
+  <% end %>
   </div>
 </div>
