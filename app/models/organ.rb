@@ -1,5 +1,4 @@
 class Organ < ApplicationRecord
-
   BLOODY_TYPE = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
 
   validates :name, :description, :price, :img_url, :bloody_type, presence: true

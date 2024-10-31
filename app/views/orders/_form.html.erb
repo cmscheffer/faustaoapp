@@ -1,0 +1,9 @@
+<div class="container">
+
+  <%= simple_form_for(@order) do |f| %>
+  <%= f.association :user, label: "User" %>
+  <%= f.association :organ, label: "Organ" %>
+  <%= f.submit %>
+<% end %>
+
+</div>
