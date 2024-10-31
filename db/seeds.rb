@@ -1,6 +1,6 @@
 # db/seeds.rb
 
-puts "Criando órgãos..."
+puts "Creating organs..."
 
 Organ.create!(
   [
@@ -87,4 +87,4 @@ Organ.create!(
   ]
 )
 
-puts "10 órgãos criados."
+puts "10 organs created."
