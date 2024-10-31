@@ -7,6 +7,7 @@ class CreateOrgans < ActiveRecord::Migration[7.1]
       t.integer :age
       t.string :img_url
       t.string :bloody_type
+      t.string :user_id
 
       t.timestamps
     end

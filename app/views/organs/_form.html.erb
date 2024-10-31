@@ -7,7 +7,7 @@
     <%= f.input :age, as: :integer %>
     <%= f.input :bloody_type, collection: Organ::BLOODY_TYPE %>
     <%= f.input :img_url %>
-    <%= f.submit "Update Organ", disable_with: 'Creating' %>
+    <%= f.submit "Update Organ", disable_with: 'Creating', class: "btn btn-primary" %>
   <% end %>
 
 </div>

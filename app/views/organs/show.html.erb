@@ -1,17 +1,28 @@
+
+
 <div class="container">
-  <h1>Organ <%= @organ.name %></h1>
-  <p><strong>Description:</strong> <%= @organ.description %></p>
-  <p><strong>Price:</strong> <%= @organ.price %></p>
-  <p><strong>Age:</strong> <%= @organ.age %></p>
-  <p><strong>Bloody type:</strong> <%= @organ.bloody_type %></p>
-  <%= image_tag @organ.img_url, style: "width: 250px"%>
-  <div>
-    <%= link_to "Edit Organ", edit_organ_path(@organ) %>
-  </div>
-  <div>
-    <%= link_to "Delete Organ", organ_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  </div>
-  <div>
-    <%= link_to "Back to Organs", organs_path %>
+  <div class="cards row justify-content-center">
+    <div class="mb-3" style="width:400px">
+      <div class="card">
+        <%= image_tag @organ.img_url, class: "card-img-top" %>
+        <div class="card-body">
+          <h4 class="card-title"><%= @organ.name %></h4>
+          <p class="card-text"><%= @organ.description %></p>
+          <p>Age: <%= @organ.age %></p>
+          <p>Bloody type: <%= @organ.bloody_type %></p>
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <p style="font-weight: 600; font-size: 1.2rem;">€<%= @organ.price%></p>
+          </div>
+          <div class="mt-2">
+            <% if current_user.id == @organ.user.id %>
+              <%= link_to "Edit Organ", edit_organ_path(@organ), class: "btn btn-primary" %>
+              <%= link_to "Delete Organ", organ_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+            <% else %>
+            <button>buy</button>
+           <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

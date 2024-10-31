@@ -1,7 +1,8 @@
 class OrgansController < ApplicationController
   before_action :authenticate_user!
+
   def index
-    @organs = Organ.all
+    @organs = Organ.where.not(user: current_user)
   end
 
   def show
@@ -15,7 +16,7 @@ class OrgansController < ApplicationController
   def create
     @organ = Organ.new(organ_params)
     if @organ.save
-      redirect_to organ_path(@organ)
+      redirect_to organ_path(@organ), notice: 'Organ was successfully created.'
     else
       render :new
     end
@@ -23,12 +24,15 @@ class OrgansController < ApplicationController
 
   def edit
     @organ = Organ.find(params[:id])
+    if current_user != @organ.user
+      redirect_to organs_path, notice: "You not allowed to edit this Organ"
+    end
   end
 
   def update
     @organ = Organ.find(params[:id])
     if @organ.update(organ_params)
-      redirect_to organ_path(@organ)
+      redirect_to organ_path(@organ), notice: 'Organ was successfully updated.'
     else
       render :edit
     end
