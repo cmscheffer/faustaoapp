@@ -18,8 +18,11 @@
               <%= link_to "Edit Organ", edit_organ_path(@organ), class: "btn btn-primary" %>
               <%= link_to "Delete Organ", organ_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
             <% else %>
-            <button>buy</button>
-           <% end %>
+              <%= simple_form_for @order do |f| %>
+                <%= f.hidden_field :organ_id, value: @organ.id %>
+                <%= f.submit "Buy", class: "btn btn-primary"%>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>

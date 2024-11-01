@@ -7,6 +7,7 @@ class OrgansController < ApplicationController
 
   def show
     @organ = Organ.find(params[:id])
+    @order = Order.new
   end
 
   def new
