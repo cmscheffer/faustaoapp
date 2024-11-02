@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :organs
   resources :orders
+  resources :organs do
+    member do
+      get "my_orders"
+    end
+  end
 end

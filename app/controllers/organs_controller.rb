@@ -2,7 +2,7 @@ class OrgansController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @organs = Organ.where.not(user: current_user)
+    @organs = Organ.where.missing(:orders).where.not(user: current_user)
   end
 
   def show
@@ -16,6 +16,7 @@ class OrgansController < ApplicationController
 
   def create
     @organ = Organ.new(organ_params)
+    @organ.user = current_user
     if @organ.save
       redirect_to organ_path(@organ), notice: 'Organ was successfully created.'
     else
@@ -45,9 +46,13 @@ class OrgansController < ApplicationController
     redirect_to organs_path
   end
 
+  def my_orders
+    @my_orders = Order.where(user: current_user)
+  end
+
   private
 
   def organ_params
-    params.require(:organ).permit(:name, :description, :price, :age, :img_url, :bloody_type)
+    params.require(:organ).permit(:name, :description, :price, :age, :img_url, :robot_type)
   end
 end

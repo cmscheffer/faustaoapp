@@ -1,0 +1,12 @@
+<h1>my orders</h1>
+
+<ul>
+    <% @my_orders.each do |order| %>
+
+    <li>
+      <p><%= order.organ.name %></p>
+      <p>Comprado de: <%= order.organ.user.full_name %></p>
+    </li>
+
+  <% end %>
+</ul>

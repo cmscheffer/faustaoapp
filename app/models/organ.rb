@@ -1,12 +1,11 @@
 class Organ < ApplicationRecord
-  BLOODY_TYPE = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
+  ROBOT_TYPE = ["humanoid", "autonomous", "industrial", "service", "companion"]
 
-  validates :name, :description, :price, :img_url, :bloody_type, presence: true
+  validates :name, :description, :price, :img_url, :robot_type, presence: true
   validates :age, numericality: { greater_than_or_equal_to: 18 }, presence: :true
   belongs_to :user
-  belongs_to :order
-
-  def self.bloody_type
-    BLOODY_TYPE
+  has_many :orders
+  def self.robot_type
+    ROBOT_TYPE
   end
 end
