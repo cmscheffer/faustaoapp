@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :organs
   has_many :orders
+
+  def full_name
+    "#{name} #{last_name}"
+  end
 end
