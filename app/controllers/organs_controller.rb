@@ -46,9 +46,7 @@ class OrgansController < ApplicationController
     redirect_to organs_path
   end
 
-  def my_orders
-    @my_orders = Order.where(user: current_user)
-  end
+  
 
   private
 
