@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.where(user: current_user)
-    
+
   end
 
   def create
@@ -13,6 +13,10 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to organs_path, notice: 'Organ was successfully created.'
     end
+  end
+
+  def my_orders
+    @my_orders = Order.where(user: current_user)
   end
 
   private

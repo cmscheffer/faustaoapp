@@ -45,7 +45,7 @@ ORGANS_ARRAY = [
       description: DESCRIPTION_ARRAY.sample,
       price: rand(100..10000),
       age: rand(18..60),
-      bloody_type: Organ.bloody_type.sample,
+      robot_type: Organ.robot_type.sample,
       img_url: Faker::Avatar.image,
       user: user
     )
