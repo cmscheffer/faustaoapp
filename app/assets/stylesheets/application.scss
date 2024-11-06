@@ -10,3 +10,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  color: white;
+  background-color: #212529;
+}
+
+.form-text {
+  color: white !important;
+}

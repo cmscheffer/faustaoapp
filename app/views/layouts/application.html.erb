@@ -12,6 +12,10 @@
 
   <body>
       <%= render "partials/navbar" %>
+      <% if current_page?(root_path) %>
+        <%= render "/partials/banner" %>
+      <% end %>
+
       <div class="container">
         <%= yield %>
       </div>

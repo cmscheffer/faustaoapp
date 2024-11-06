@@ -3,6 +3,9 @@ class OrgansController < ApplicationController
 
   def index
     @organs = Organ.where.missing(:orders).where.not(user: current_user)
+    if params[:query].present?
+      @organs = @organs.where("name ILIKE ?", "%#{params[:query]}%")
+    end
   end
 
   def show
@@ -34,7 +37,7 @@ class OrgansController < ApplicationController
   def update
     @organ = Organ.find(params[:id])
     if @organ.update(organ_params)
-      redirect_to organ_path(@organ), notice: 'Organ was successfully updated.'
+      redirect_to my_offers_organs_path, notice: 'Organ was successfully updated.'
     else
       render :edit
     end
@@ -46,7 +49,9 @@ class OrgansController < ApplicationController
     redirect_to organs_path
   end
 
-  
+  def my_offers
+    @organs = Organ.where(user: current_user)
+  end
 
   private
 

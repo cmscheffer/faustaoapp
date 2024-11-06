@@ -8,3 +8,34 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+.simple_form {
+  margin: 8rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .form-inputs {
+    width: 30%;
+  }
+
+  .btn{
+    width: 388.8px;
+  }
+
+  a {
+    color: rgb(230, 221, 221);
+  }
+}
+
+#reset-pass {
+  color: rgb(230, 221, 221);
+
+}
+
+#reset-pass:hover {
+  color: rgb(255, 255, 255);
+}
+
+
