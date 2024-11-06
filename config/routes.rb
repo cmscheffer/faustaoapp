@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   resources :orders do
     get "my_orders", on: :collection
   end
-  resources :organs
+  resources :organs do
+   get "my_offers", on: :collection
+  end
 end

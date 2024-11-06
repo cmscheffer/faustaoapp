@@ -24,12 +24,12 @@ DESCRIPTION_ARRAY = [
   "Parte do sistema digestivo onde ocorre a absorção de nutrientes."
 ]
 ORGANS_ARRAY = [
-  "Coração",
-  "Pulmões",
-  "Fígado",
-  "Rins",
-  "Pâncreas",
-  "Intestino Delgado"
+  "Coração Robotico",
+  "Pulmões Robotico",
+  "Fígado Robotico",
+  "Rins Robotico",
+  "Pâncreas Robotico",
+  "Intestino Delgado Robotico"
 ]
 
 5.times do |u|
