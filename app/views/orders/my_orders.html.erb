@@ -1,22 +1,7 @@
 <h1>MY ORDERS</h1>
 
-<div class="cards row justify-content-center">
-  <% @my_orders.each do |order| %>
-    <div class="mb-3" style="width:400px">
-      <div class="card">
-        <%= image_tag order.organ.img_url, class: "card-img-top" %>
-          <div class="card-body">
-            <h4 class="card-title"><%= order.organ.name %></h4>
-            <p class="card-text"><%= order.organ.description %></p>
-            <p>Age: <%= order.organ.age %></p>
-            <p>Bloody type: <%= order.organ.robot_type %></p>
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <p style="font-weight: 600; font-size: 1.2rem;">€<%= order.organ.price%></p>
-            </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
-
-
+  <div class="cards row justify-content-center gap-5">
+    <% @my_orders.each do |order| %>
+      <%= render 'partials/card', my_order: order, organ: order.organ %>
+    <% end %>
+  </div>

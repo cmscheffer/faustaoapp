@@ -1,6 +1,6 @@
 <div class="container">
   <div class="d-flex justify-content-between align-items-center">
-    <h1>ORGANS ROBOTICOS</h1>
+    <h1>ROBOTICS ORGANS</h1>
     <%= link_to "New Offer", new_organ_path, class: "btn btn-primary" %>
   </div>
 
@@ -14,8 +14,8 @@
           %>
         <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
       <% end %>
+    </div>
   </div>
-</div>
 
   <div class="cards row justify-content-center gap-5">
     <% @organs.each do |organ| %>
