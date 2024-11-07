@@ -21,7 +21,7 @@ legend ~ div.form-check:first-of-type {
   }
 
   .btn{
-    width: 388.8px;
+    width: 100%;
   }
 
   a {
@@ -38,4 +38,6 @@ legend ~ div.form-check:first-of-type {
   color: rgb(255, 255, 255);
 }
 
-
+#new_order {
+  margin: 0;
+}
