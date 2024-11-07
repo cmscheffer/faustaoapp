@@ -5,6 +5,7 @@ class Organ < ApplicationRecord
   validates :age, numericality: { greater_than_or_equal_to: 18 }, presence: :true
   belongs_to :user
   has_many :orders
+
   def self.robot_type
     ROBOT_TYPE
   end

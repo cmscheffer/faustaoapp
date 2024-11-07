@@ -1,30 +1,35 @@
-<div class="card-organ row mb-2">
-  <div class="photo col-md-6">
-    <%= image_tag organ.img_url, class: "card-img-left" %>
-  </div>
-  <div class="details col-md-6 align-content-center">
-    <h4> <%= organ.name %></h4>
-    <p>Description: <%= organ.description %></p>
-    <p>Age: <%= organ.age %></p>
-    <p>Robot Type: <%= organ.robot_type %></p>
-    <p>Price: <span>€<%= organ.price %></span></p>
-    <% if action_name == "my_offers" && controller_name == "organs"%>
-        <div>
-          <%= link_to "Edit Organ", edit_organ_path(organ), class: "btn btn-primary" %>
-          <%= link_to "Delete Organ", organ_path(organ), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
-        </div>
+<% if organ %>
+  <div class="card-organ row mb-2">
+    <div class="photo col-md-6 ">
+      <%= image_tag organ.img_url %>
+    </div>
+    <div class="details col-md-6 align-items-center">
+      <h4> <%= organ.name %></h4>
+      <p>Description: <%= organ.description %></p>
+      <p>Age: <%= organ.age %></p>
+      <p>Robot Type: <%= organ.robot_type %></p>
+      <p id="organ-price">Price: <span>€<%= organ.price %></span></p>
 
-    <% elsif action_name == "show" && controller_name == "organs"%>
-      <div>
-        <%= simple_form_for @order do |f| %>
-          <%= f.hidden_field :organ_id, value: @organ.id %>
-          <%= f.submit "Buy", class: "btn btn-primary"%>
-        <% end %>
-      </div>
-    <% elsif action_name == "index" && controller_name == "organs"  %>
-      <div class="d-flex justify-content-between align-items-center mt-3">
-          <%= link_to "Details", organ_path(organ), class: "btn btn-primary" %>
-      </div>
-    <% end %>
+      <% if action_name == "my_offers" && controller_name == "organs"%>
+
+          <div>
+            <%= link_to "Edit Organ", edit_organ_path(organ), class: "btn btn-primary" %>
+            <%= link_to "Delete Organ", organ_path(organ), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+          </div>
+
+      <% elsif action_name == "show" && controller_name == "organs"%>
+        <div>
+          <%= simple_form_for @order do |f| %>
+            <%= f.hidden_field :organ_id, value: @organ.id %>
+            <%= f.submit "Buy", class: "btn btn-primary"%>
+          <% end %>
+        </div>
+      <% elsif action_name == "index" && controller_name == "organs"  %>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <%= link_to "Details", organ_path(organ), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+
+    </div>
   </div>
-</div>
+<% end %>
