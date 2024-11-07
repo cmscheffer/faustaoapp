@@ -8,28 +8,28 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 #
-puts "Deletando users and organs..."
+puts "Deleting users and organs..."
 User.destroy_all
 Organ.destroy_all
 puts "Users and organs deletados com sucesso!"
 
-puts "Criando users and organs..."
+puts "Creating users and organs..."
 
 DESCRIPTION_ARRAY = [
-  "Órgão responsável por bombear sangue para todo o corpo.",
-  "Órgãos que permitem a troca de oxigênio e dióxido de carbono com o ar.",
-  "Órgão que processa nutrientes e desintoxica substâncias no sangue.",
-  "Órgãos que filtram o sangue, removendo resíduos e regulando líquidos e eletrólitos.",
-  "Órgão que ajuda na digestão e regula os níveis de açúcar no sangue.",
-  "Parte do sistema digestivo onde ocorre a absorção de nutrientes."
+  "Organ responsible for pumping blood throughout the body.",
+  "Organs that allow the exchange of oxygen and carbon dioxide with the air.",
+  "Organ that processes nutrients and detoxifies substances in the blood.",
+  "Organs that filter the blood, removing waste and regulating fluids and electrolytes.",
+  "Organ that aids in digestion and regulates blood sugar levels.",
+  "Part of the digestive system where nutrient absorption occurs."
 ]
 ORGANS_ARRAY = [
-  "Coração Robotico",
-  "Pulmões Robotico",
-  "Fígado Robotico",
-  "Rins Robotico",
-  "Pâncreas Robotico",
-  "Intestino Delgado Robotico"
+  "Robotic Heart",
+  "Robotic Lungs",
+  "Robotic Liver",
+  "Robotic Kidneys",
+  "Robotic Pancreas",
+  "Robotic Small Intestine"
 ]
 
 5.times do |u|
@@ -52,4 +52,4 @@ ORGANS_ARRAY = [
   end
 end
 
-puts "Users and organs criados com sucesso!"
+puts "Users and organs successfully created."

@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.user = current_user
     if @order.save
-      redirect_to organs_path, notice: 'Organ was successfully created.'
+      redirect_to my_orders_orders_path, notice: 'Organ was successfully created.'
     end
   end
 
