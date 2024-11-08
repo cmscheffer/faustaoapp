@@ -46,8 +46,12 @@ class OrgansController < ApplicationController
 
   def destroy
     @organ = Organ.find(params[:id])
-    @organ.destroy
-    redirect_to organs_path
+    if @organ.orders.present?
+      redirect_to my_offers_organs_path, alert: "This offer was already bougth"
+    else
+      @organ.destroy
+      redirect_to organs_path
+    end
   end
 
   def my_offers
