@@ -1,7 +1,11 @@
 <% if organ %>
   <div class="card-organ row mb-2">
     <div class="photo col-md-6 ">
-      <%= image_tag organ.img_url %>
+      <% if organ&.photo&.key %>
+        <%= cl_image_tag organ.photo.key %>
+      <% else %>
+        <%= image_tag "robo.jpg"%>
+      <% end %>
     </div>
     <div class="details col-md-6 align-items-center">
       <h4> <%= organ.name %></h4>

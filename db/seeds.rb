@@ -8,7 +8,15 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 #
+require "open-uri"
+
 puts "Deleting users and organs..."
+
+Order.destroy_all
+Organ.destroy_all
+User.destroy_all
+
+puts "Users and organs deletados com sucesso!"
 puts "Creating users and organs..."
 
 DESCRIPTION_ARRAY = [
@@ -35,6 +43,9 @@ ORGANS_ARRAY = [
     email: Faker::Internet.unique.email,
     password: "teste123"
   )
+
+  2.times do |o|
+    organ = Organ.create!(
   5.times do |o|
       Organ.create!(
       name: ORGANS_ARRAY.sample,
@@ -42,9 +53,12 @@ ORGANS_ARRAY = [
       price: rand(100..10000),
       age: rand(18..60),
       robot_type: Organ.robot_type.sample,
-      img_url: Faker::Avatar.image,
       user: user
     )
+
+    file = URI.parse(Faker::Avatar.image).open
+    organ.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+
   end
 end
 
