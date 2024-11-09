@@ -14,8 +14,7 @@
       <p>Robot Type: <%= organ.robot_type %></p>
       <p id="organ-price">Price: <span>€<%= organ.price %></span></p>
 
-      <% if action_name == "my_offers" && controller_name == "organs"%>
-
+      <% if action_name == "my_offers" && controller_name == "organs" %>
           <div>
             <% if organ.orders.none? %>
               <%= link_to "Edit Organ", edit_organ_path(organ), class: "btn btn-primary" %>
