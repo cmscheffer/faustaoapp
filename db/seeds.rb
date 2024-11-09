@@ -55,7 +55,7 @@ ORGANS_ARRAY = [
       robot_type: Organ.robot_type.sample,
       user: user
     )
-
+  )
     file = URI.parse(Faker::Avatar.image).open
     organ.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 
