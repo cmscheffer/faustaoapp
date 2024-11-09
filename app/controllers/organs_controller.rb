@@ -30,8 +30,8 @@ class OrgansController < ApplicationController
 
   def edit
     @organ = Organ.find(params[:id])
-    if current_user != @organ.user
-      redirect_to organs_path, notice: "You not allowed to edit this Organ"
+    if current_user != @organ.user || @organ.orders.present?
+      redirect_to my_offers_organs_path, notice: "You not allowed to edit this Organ"
     end
   end
 

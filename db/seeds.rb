@@ -9,10 +9,6 @@
 #   end
 #
 puts "Deleting users and organs..."
-User.destroy_all
-Organ.destroy_all
-puts "Users and organs deletados com sucesso!"
-
 puts "Creating users and organs..."
 
 DESCRIPTION_ARRAY = [
@@ -32,14 +28,14 @@ ORGANS_ARRAY = [
   "Robotic Small Intestine"
 ]
 
-5.times do |u|
+10.times do |u|
     user = User.create!(
     name: Faker::Name.name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.unique.email,
     password: "teste123"
   )
-  2.times do |o|
+  5.times do |o|
       Organ.create!(
       name: ORGANS_ARRAY.sample,
       description: DESCRIPTION_ARRAY.sample,
@@ -52,4 +48,5 @@ ORGANS_ARRAY = [
   end
 end
 
+puts "Users and organs successfully created."
 puts "Users and organs successfully created."
