@@ -7,7 +7,7 @@
         <%= f.input :price, as: :decimal %>
         <%= f.input :age, as: :integer %>
         <%= f.input :robot_type, collection: Organ::ROBOT_TYPE %>
-        <%= f.input :img_url %>
+        <%= f.input :photo, as: :file %>
       </div>
       <% if current_page?(new_organ_path) %>
         <%= f.submit "Create Offer", class: "btn btn-primary", style: "width: 374.39px" %>
